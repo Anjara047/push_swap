@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:19:19 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/20 22:51:17 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/21 09:37:43 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int	gap_max(t_stack **a)
 	int	max_gap;
 	int	q;
 
+	max_gap = 0;
 	index_max = count_size(*a) - 1;
 	q = index_max;
 	while(q != 1 )

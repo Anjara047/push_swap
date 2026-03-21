@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:02:46 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/20 22:37:58 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/21 09:22:18 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ typedef struct		s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+double	count_disorder(t_stack **a);
+void	adaptive_strategy(t_stack **a, t_stack **b, double disorder);
+int		check_flag(char *flag);
+void	choose_strat(t_stack **a, t_stack **b, int flag);
 void 	error_mess(void);
 int		check_arg(char **argv, int loc);
 int		ft_atoi(char *nb);
@@ -48,7 +52,7 @@ void	pb(t_stack **a, t_stack **b);
 void	rb(t_stack **b);
 void	rrb(t_stack **b);
 int		count_size(t_stack *a);
-void	indexing(t_stack **a);
+void	indexing(t_stack **a, int size);
 int		find_min_value(t_stack	**a);
 int		find_min_position(t_stack **a);
 void	move_min_top(t_stack **a);

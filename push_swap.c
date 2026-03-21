@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:02:01 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/20 23:28:07 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/21 09:03:51 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,21 @@ static void	push_swap(char	**argv)
 	t_stack	*a;
 	t_stack	*b;
 	int		flag;
-	int		disorder;
+	double	disorder;
 	int		size;
 
 	a = NULL;
 	b = NULL;
-	size = count_size(a);
-	flag = check_flag(argv[1]);//(to be created)
-	if (flag == 1)
+	flag = check_flag(argv[1]);
+	if (flag)
 		parse(argv, &a, 2);
 	else
 		parse(argv, &a, 1);
+	size = count_size(a);
 	check_duplicates(&a);
 	indexing(&a, size);
-	if (flag == 1)
-		choose_strat(&a, &b);//(to be created similar to the fucking adaptive)
+	if (flag)
+		choose_strat(&a, &b, flag);
 	else
 	{
 		disorder = count_disorder(&a);

@@ -6,7 +6,7 @@
 /*   By: tsanjara <tsanjara@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 21:42:10 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/20 23:17:10 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/21 09:03:16 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ double  count_disorder(t_stack **a)
         while (runner)
         {
             total_pairs++;
-            if (current->value > runner->value)
+            if (current->index > runner->index)
                 mistakes++;
             runner = runner->next;
         }
