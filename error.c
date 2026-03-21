@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_strategy.c                                  :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/11 10:38:16 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/18 07:30:08 by tsiarran         ###   ########.fr       */
+/*   Created: 2026/03/20 15:39:18 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/03/20 23:22:59 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	simple_strategy(t_stack **a, t_stack **b)
+void	error_mess(void)
 {
-	int size;
-
-	if (!a || !(*a))
-		return ;
-	size = count_size(*a);
-	while (*a)
-	{
-		move_min_top(a);
-		pb(a, b);
-	}
-	while (*b)
-		pa(a, b);
+	write(2, "Error\n", 6);
+    exit(1) ;
 }

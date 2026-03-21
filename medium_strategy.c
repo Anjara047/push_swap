@@ -3,78 +3,119 @@
 /*                                                        :::      ::::::::   */
 /*   medium_strategy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsanjara <tsanjara@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:29:05 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/19 11:52:38 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/20 23:30:53 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	count_chunk_element(t_stack **a, int chunk_start, int chunk_end, int chunk_size)
+//looking for the nearest chunk_element(in the top part/down part), in order to know what to use(ra or rra).
+static int next_chunk_element(t_stack **a, int length,int end)
 {
 	t_stack	*tmp;
-	int		bottom;
-	int		top;
 	int		loc;
-
-	tmp = (*a);
-	while (tmp)
+	int		loc_top;
+	int		loc_down;
+	
+	loc = 0;
+	loc_top = 0;
+	loc_down = 0;
+	tmp = *a;
+	while(tmp)
 	{
-		if ((loc < (chunk_size / 2)) && (tmp->index >= chunk_start && tmp->index < chunk_end))
-			top++;
-		if ((loc >= (chunk_size / 2)) && (tmp->index >= chunk_start && tmp->index < chunk_end))
-			bottom++;
-		tmp = tmp->next;
+		if ((tmp->index) < end)
+			loc_down = loc;
+		if (loc_down == 0)
+			loc_top++;
 		loc++;
+		tmp = tmp->next;
 	}
-	if (top > bottom)
-		return (0);
-	return (1);
+	if ((loc_top + 1) < (length - loc_down))
+		return (1);
+	return (0);
 }
 
-static void push_to_b(t_stack **a, t_stack **b, int chunk_start, int chunk_end)
+static void	push_chunk_to_b(t_stack **a, t_stack **b, int size, int end)
 {
-	int	lim;
-	int	smth;
-	int	chunk_size;
+	int lim;
+	int	length;
+	int next_chunk;
 
-	chunk_size =  count_size(*a);
-	chunk_end = ft_sqrt(chunk_size);
-	lim = chunk_end;
-	smth = count_chunk_element(a, chunk_start, chunk_end, chunk_size);
+	lim = size;
+	length = count_size(*a);
+	next_chunk = next_chunk_element(a, length, end);
 	while ((*a) && (lim > 0))
 	{
-		if ((*a)->index >= chunk_start && (*a)->index < chunk_end)
+		if ((*a)->index < end)
 		{
 			pb(a, b);
+			if (((*b)->next) && ((*b)->index < ((*b)->next)->index))
+				sb(b);
+			if (((*b)->next) && ((*b)->index < (end/2)))
+				rb(b);
+			next_chunk = next_chunk_element(a, length, end);
 			lim--;
 		}
-		if(smth == 0)
+		if (next_chunk == 1)
 			ra(a);
 		else
-			rra (a);
+			rra(a);
 	}
+}
+
+static int	push_max_to_a(t_stack **a, t_stack **b, int max)
+{
+	int	rb_nb;
+
+	rb_nb = 0;
+	while ((*b)->index != max)
+	{
+		if (((*b)->next)->index == max)
+		{
+			sb(b);
+			break;
+		}
+		rb(b);
+		rb_nb++;
+	}
+	pa(a, b);
+	while (rb_nb > 0)
+	{
+		rrb(b);
+		rb_nb--;
+		if ((*b)->index == (max-1))
+			{
+				pa(a, b);
+				max--;
+			}
+	}
+	return (max);
 }
 
 void	medium_strategy(t_stack **a, t_stack **b)
 {
-	int	chunk_start;
-	int	chunk_size;
+	int	length;
 	int	chunk_end;
+	int	size;
+	int	max_index;
 
-	chunk_start = 0;
-	chunk_size = count_size(*a);
-	chunk_end = ft_sqrt(chunk_size);
+	if (!((*a) || a))
+		return ;
+	length = count_size(*a);
+	size = ft_sqrt(length);
+	chunk_end = size;
 	while (*a)
 	{
-		push_to_b(a, b, chunk_start, chunk_end);
-		chunk_start = chunk_end;
-		chunk_end = chunk_size + chunk_size;
+		push_chunk_to_b(a, b, size, chunk_end);
+		chunk_end = chunk_end + size;
 	}
+	max_index = length - 1;
 	while (*b)
 	{
-		pa(a, b);
+		max_index = push_max_to_a(a, b, max_index);
+		max_index--;
 	}
 }

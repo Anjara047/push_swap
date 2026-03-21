@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsanjara <tsanjara@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: tsiarran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 07:34:36 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/19 08:25:59 by tsanjara         ###   ########.fr       */
+/*   Created: 2026/03/18 07:03:33 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/03/20 23:28:44 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,16 @@ static int	pick_index(int *arr, int value, int size)
 	return (-1);
 }
 
-void	indexing(t_stack **a)
+
+
+void	indexing(t_stack **a, int size)
 {
 	int	*arr;
 	int loc;
-	int size;
 	t_stack *tmp;
 
 	if (!a || !(*a))
 		return ;
-	size = count_size(*a);
 	loc = 0;
 	arr = malloc(sizeof(int) * size);
 	if (!arr)

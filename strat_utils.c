@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   strat_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsanjara <tsanjara@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 07:32:21 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/19 07:44:37 by tsanjara         ###   ########.fr       */
+/*   Created: 2026/03/19 18:02:55 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/03/19 18:02:56 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

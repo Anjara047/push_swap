@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/19 18:02:46 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/03/20 22:37:58 by tsanjara         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <limits.h>
@@ -11,7 +23,10 @@ typedef struct		s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+void 	error_mess(void);
+int		check_arg(char **argv, int loc);
 int		ft_atoi(char *nb);
+char	**ft_split(char const *s, char c);
 t_stack	*ft_stack_new(int value);
 t_stack *ft_stack_last(t_stack *a);
 void	ft_stackclear(t_stack **a);
@@ -38,7 +53,8 @@ int		find_min_value(t_stack	**a);
 int		find_min_position(t_stack **a);
 void	move_min_top(t_stack **a);
 int		ft_sqrt(int	nbr);
-void	simple_strategy(t_stack **a, t_stack **b);
 void	medium_strategy(t_stack **a, t_stack **b);
+void	simple_strategy(t_stack **a, t_stack **b);
+void	complex_strategy(t_stack **a, t_stack **b);
 
 #endif

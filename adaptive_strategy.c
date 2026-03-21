@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_strategy.c                                  :+:      :+:    :+:   */
+/*   adaptive_strategy.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/11 10:38:16 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/18 07:30:08 by tsiarran         ###   ########.fr       */
+/*   Created: 2026/03/06 13:15:02 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/03/20 23:12:44 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	simple_strategy(t_stack **a, t_stack **b)
+void	adaptive_strategy(t_stack **a, t_stack **b, double disorder)
 {
-	int size;
-
-	if (!a || !(*a))
+	if (!a || !(*a) || !disorder)
 		return ;
-	size = count_size(*a);
-	while (*a)
+	if (disorder < 0.2)
 	{
-		move_min_top(a);
-		pb(a, b);
+		simple_strategy(a, b);
+		return ;
 	}
-	while (*b)
-		pa(a, b);
+	else if (disorder >= 0.2 && disorder < 0.5)
+	{
+		medium_strategy(a, b);
+		return ;
+	}
+	else if (disorder > 0.5)
+	{
+		complex_strategy(a, b);
+		return ;
+	}
 }

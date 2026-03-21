@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsanjara <tsanjara@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 07:34:10 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/19 07:34:19 by tsanjara         ###   ########.fr       */
+/*   Created: 2026/03/19 18:02:11 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/03/20 15:44:33 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,19 @@ static void	check_overflow(long res, int sign)
 {
 	if (((sign == 1) && (res > INT_MAX)) 
 		|| ((sign == -1) && (res > ((long)INT_MAX + 1))))
-	{
-		write (2, "Error\n", 6);
-		exit(1);
-	}
+		error_mess();
 }
 
 static void	check_nb(char *nb, int loc)
 {
 	if (!(nb[loc] >= '0' && nb[loc] <= '9'))
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		error_mess();
 }
 
 static void	check_after_nb(char *nb, int loc)
 {
 	if (nb[loc] != '\0')
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		error_mess();
 }
 
 int	ft_atoi(char *nb)

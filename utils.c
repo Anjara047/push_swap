@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsanjara <tsanjara@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/19 07:31:59 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/19 08:25:34 by tsanjara         ###   ########.fr       */
+/*   Created: 2026/03/19 18:03:01 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/03/19 18:03:02 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
