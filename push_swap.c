@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:02:01 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/21 09:03:51 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/21 10:33:37 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,13 @@ static void	push_swap(char	**argv)
 	size = count_size(a);
 	check_duplicates(&a);
 	indexing(&a, size);
-	if (flag)
-		choose_strat(&a, &b, flag);
-	else
+	disorder = count_disorder(&a);
+	if (disorder != 0)
 	{
-		disorder = count_disorder(&a);
-		adaptive_strategy(&a, &b, disorder);
+		if (flag)
+			choose_strat(&a, &b, flag);
+		else
+			adaptive_strategy(&a, &b, disorder);
 	}
 	ft_stackclear(&a);
 	ft_stackclear(&b);
