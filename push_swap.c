@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:02:01 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/21 10:33:37 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/24 07:57:00 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	check_duplicates(t_stack **a)
 static void	parse(char	**argv, t_stack **a, int loc)
 {
 	int		value;
-	t_stack *new;
+	t_stack	*new;
 
 	while (argv[loc])
 	{
@@ -73,19 +73,23 @@ static void	push_swap(char	**argv)
 	size = count_size(a);
 	check_duplicates(&a);
 	indexing(&a, size);
-	disorder = count_disorder(&a);
-	if (disorder != 0)
+	if (size < 4)
+		strat_min_number(&a);
+	else
 	{
-		if (flag)
-			choose_strat(&a, &b, flag);
-		else
-			adaptive_strategy(&a, &b, disorder);
+		disorder = count_disorder(&a);
+		if (disorder != 0)
+		{
+			if (flag)
+				choose_strat(&a, &b, flag);
+			else
+				adaptive_strategy(&a, &b, disorder);
+		}
+		ft_free_stack(&a, &b);
 	}
-	ft_stackclear(&a);
-	ft_stackclear(&b);
 }
 
-int check_arg(char **argv, int loc)
+int	check_arg(char **argv, int loc)
 {
 	int	loc2;
 	int	space;

@@ -6,7 +6,7 @@
 /*   By: tsanjara <tsanjara@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 07:21:36 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/21 10:09:30 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/23 23:59:03 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,12 @@ static int	valid_flag(char *flag, int loc, char *strategy, int result)
 	return (result);
 }
 
-
 int	check_flag(char *flag)
 {
 	int	loc;
 
 	loc = 0;
-	while(flag[loc] == '-' && loc < 2)
+	while (flag[loc] == '-' && loc < 2)
 	{
 		loc++;
 	}

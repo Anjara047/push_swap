@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 15:39:18 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/20 23:22:59 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/23 19:47:49 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	error_mess(void)
 {
 	write(2, "Error\n", 6);
-    exit(1) ;
+	exit(1);
 }

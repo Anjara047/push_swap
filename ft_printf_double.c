@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_strategy.c                                  :+:      :+:    :+:   */
+/*   ft_print_double.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
+/*   By: tsanjara <tsanjara@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/11 10:38:16 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/24 07:17:48 by tsanjara         ###   ########.fr       */
+/*   Created: 2026/03/24 07:09:49 by tsanjara          #+#    #+#             */
+/*   Updated: 2026/03/24 07:15:14 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	simple_strategy(t_stack **a, t_stack **b)
+//This is funtion is needed to print the pourcentage in the benchmark
+int	ft_printf_double(double n)
 {
-	int	size;
-
-	if (!a || !(*a))
-		return ;
-	size = count_size(*a);
-	while (*a)
-	{
-		move_min_top(a);
-		pb(a, b);
-	}
-	while (*b)
-		pa(a, b);
+	
 }

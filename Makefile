@@ -9,6 +9,7 @@ SRC =  	count_disorder.c adaptive_strategy.c\
 		move_ab.c strat_utils.c flag_utils.c\
 		medium_strategy.c simple_strategy.c\
 		complex_strategy.c push_swap.c\
+		strat_min_number.c
 
 OBJ = $(SRC:.c=.o)
 

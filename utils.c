@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:03:01 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/21 09:35:45 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/23 22:50:52 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stack	*ft_stack_new(int value)
 {
-	t_stack *new;
+	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
@@ -69,14 +69,14 @@ void	ft_add_stack_back(t_stack *new, t_stack **a)
 
 int	count_size(t_stack *a)
 {
-	t_stack *tmp;
-	int size;
+	t_stack	*tmp;
+	int		size;
 
 	if (!a)
 		return (0);
 	size = 0;
 	tmp = a;
-	while(tmp)
+	while (tmp)
 	{
 		size++;
 		tmp = tmp->next;

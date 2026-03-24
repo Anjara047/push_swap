@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 07:31:00 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/18 07:25:14 by tsiarran         ###   ########.fr       */
+/*   Updated: 2026/03/23 19:41:20 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sa(t_stack **a)
 {
 	t_stack	*first;
-	t_stack *second;
+	t_stack	*second;
 
 	if (!a || !(*a) || !((*a)->next))
 		return ;
@@ -43,7 +43,7 @@ void	pa(t_stack **a, t_stack **b)
 void	ra(t_stack **a)
 {
 	t_stack	*first;
-	t_stack *last;
+	t_stack	*last;
 
 	if (!a || !(*a) || !((*a)->next))
 		return ;
@@ -57,14 +57,14 @@ void	ra(t_stack **a)
 
 void	rra(t_stack **a)
 {
-	t_stack *last;
-	t_stack *prev;
-	
+	t_stack	*last;
+	t_stack	*prev;
+
 	if (!a || !(*a) || !((*a)->next))
 		return ;
 	prev = NULL;
 	last = *a;
-	while(last->next)
+	while (last->next)
 	{
 		prev = last;
 		last = last->next;

@@ -6,25 +6,24 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:29:05 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/20 23:30:53 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/23 20:06:26 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//looking for the nearest chunk_element(in the top part/down part), in order to know what to use(ra or rra).
-static int next_chunk_element(t_stack **a, int length,int end)
+static int	next_chunk_element(t_stack **a, int length, int end)
 {
 	t_stack	*tmp;
 	int		loc;
 	int		loc_top;
 	int		loc_down;
-	
+
 	loc = 0;
 	loc_top = 0;
 	loc_down = 0;
 	tmp = *a;
-	while(tmp)
+	while (tmp)
 	{
 		if ((tmp->index) < end)
 			loc_down = loc;
@@ -40,9 +39,9 @@ static int next_chunk_element(t_stack **a, int length,int end)
 
 static void	push_chunk_to_b(t_stack **a, t_stack **b, int size, int end)
 {
-	int lim;
+	int	lim;
 	int	length;
-	int next_chunk;
+	int	next_chunk;
 
 	lim = size;
 	length = count_size(*a);
@@ -54,7 +53,7 @@ static void	push_chunk_to_b(t_stack **a, t_stack **b, int size, int end)
 			pb(a, b);
 			if (((*b)->next) && ((*b)->index < ((*b)->next)->index))
 				sb(b);
-			if (((*b)->next) && ((*b)->index < (end/2)))
+			if (((*b)->next) && ((*b)->index < (end / 2)))
 				rb(b);
 			next_chunk = next_chunk_element(a, length, end);
 			lim--;
@@ -76,7 +75,7 @@ static int	push_max_to_a(t_stack **a, t_stack **b, int max)
 		if (((*b)->next)->index == max)
 		{
 			sb(b);
-			break;
+			break ;
 		}
 		rb(b);
 		rb_nb++;
@@ -86,11 +85,11 @@ static int	push_max_to_a(t_stack **a, t_stack **b, int max)
 	{
 		rrb(b);
 		rb_nb--;
-		if ((*b)->index == (max-1))
-			{
-				pa(a, b);
-				max--;
-			}
+		if ((*b)->index == (max - 1))
+		{
+			pa(a, b);
+			max--;
+		}
 	}
 	return (max);
 }

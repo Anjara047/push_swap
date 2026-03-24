@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 07:31:00 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/18 07:25:49 by tsiarran         ###   ########.fr       */
+/*   Updated: 2026/03/23 19:44:12 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sb(t_stack **b)
 {
 	t_stack	*first;
-	t_stack *second;
+	t_stack	*second;
 
 	if (!b || !(*b) || !((*b)->next))
 		return ;
@@ -43,7 +43,7 @@ void	pb(t_stack **a, t_stack **b)
 void	rb(t_stack **b)
 {
 	t_stack	*first;
-	t_stack *last;
+	t_stack	*last;
 
 	if (!b || !(*b) || !((*b)->next))
 		return ;
@@ -57,14 +57,14 @@ void	rb(t_stack **b)
 
 void	rrb(t_stack **b)
 {
-	t_stack *last;
-	t_stack *prev;
-	
+	t_stack	*last;
+	t_stack	*prev;
+
 	if (!b || !(*b) || !((*b)->next))
 		return ;
 	prev = NULL;
 	last = *b;
-	while(last->next)
+	while (last->next)
 	{
 		prev = last;
 		last = last->next;

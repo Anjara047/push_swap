@@ -6,7 +6,7 @@
 /*   By: tsiarran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 07:03:33 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/21 08:42:11 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/23 19:54:05 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	sort_arr(int *arr, int size)
 
 static int	pick_index(int *arr, int value, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < size)
@@ -50,13 +50,11 @@ static int	pick_index(int *arr, int value, int size)
 	return (-1);
 }
 
-
-
 void	indexing(t_stack **a, int size)
 {
-	int	*arr;
-	int loc;
-	t_stack *tmp;
+	int		*arr;
+	int		loc;
+	t_stack	*tmp;
 
 	if (!a || !(*a))
 		return ;

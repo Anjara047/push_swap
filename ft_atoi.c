@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:02:11 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/20 15:44:33 by tsiarran         ###   ########.fr       */
+/*   Updated: 2026/03/23 19:39:33 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	check_overflow(long res, int sign)
 {
-	if (((sign == 1) && (res > INT_MAX)) 
+	if (((sign == 1) && (res > INT_MAX))
 		|| ((sign == -1) && (res > ((long)INT_MAX + 1))))
 		error_mess();
 }
@@ -33,9 +33,9 @@ static void	check_after_nb(char *nb, int loc)
 
 int	ft_atoi(char *nb)
 {
-	int	loc;
+	int		loc;
 	long	res;
-	int	sign;
+	int		sign;
 
 	loc = 0;
 	res = 0;
@@ -48,7 +48,7 @@ int	ft_atoi(char *nb)
 			sign = -1;
 		loc++;
 	}
-	check_nb(nb,loc);
+	check_nb (nb, loc);
 	while (nb[loc] >= '0' && nb[loc] <= '9')
 	{
 		res = (res * 10) + (nb[loc] - 48);
