@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flag_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsanjara <tsanjara@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 07:21:36 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/23 23:59:03 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/26 15:31:16 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static int	valid_flag(char *flag, int loc, char *strategy, int result)
 		loc2++;
 		loc++;
 	}
+	if (strategy[loc2] != '\0')
+		return (0);
 	return (result);
 }
 
@@ -40,6 +42,8 @@ int	check_flag(char *flag)
 	}
 	if (flag[loc] != '-' && loc < 2)
 		return (0);
+	if (valid_flag(flag, loc, "bench", 5) == 5)
+		return (5);
 	if (valid_flag(flag, loc, "simple", 1) == 1)
 		return (1);
 	else if (valid_flag(flag, loc, "medium", 2) == 2)
@@ -51,21 +55,21 @@ int	check_flag(char *flag)
 	return (0);
 }
 
-void	choose_strat(t_stack **a, t_stack **b, int flag)
+void	choose_strat(t_stack **a, t_stack **b, int flag, int *move)
 {
 	double	disorder;
 
 	if (!(*a) || !a)
 		return ;
 	if (flag == 1)
-		simple_strategy(a, b);
+		simple_strategy(a, b, move);
 	else if (flag == 2)
-		medium_strategy(a, b);
+		medium_strategy(a, b, move);
 	else if (flag == 3)
-		complex_strategy(a, b);
+		complex_strategy(a, b, move);
 	else if (flag == 4)
 	{
 		disorder = count_disorder(a);
-		adaptive_strategy(a, b, disorder);
+		adaptive_strategy(a, b, disorder, move);
 	}
 }

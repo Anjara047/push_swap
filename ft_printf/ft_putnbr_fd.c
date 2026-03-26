@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adaptive_strategy.c                                :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 13:15:02 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/24 16:21:53 by tsiarran         ###   ########.fr       */
+/*   Created: 2026/02/02 22:09:52 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/02/18 15:28:53 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-void	adaptive_strategy(t_stack **a, t_stack **b, double disorder, int *move)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (!a || !(*a) || disorder == 0)
-		return ;
-	if (disorder < 0.2)
+	if (n == -2147483648)
 	{
-		simple_strategy(a, b, move);
+		write(fd, "-2147483648", 11);
 		return ;
 	}
-	else if (disorder >= 0.2 && disorder < 0.5)
+	if (n < 0)
 	{
-		medium_strategy(a, b, move);
-		return ;
+		ft_putchar_fd('-', fd);
+		n = -n;
 	}
-	else if (disorder >= 0.5)
-	{
-		complex_strategy(a, b, move);
-		return ;
-	}
+	if (n > 9)
+		ft_putnbr_fd((n / 10), fd);
+	ft_putchar_fd((n % 10) + '0', fd);
 }

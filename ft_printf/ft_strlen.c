@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adaptive_strategy.c                                :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 13:15:02 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/24 16:21:53 by tsiarran         ###   ########.fr       */
+/*   Created: 2026/01/19 13:19:04 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/02/18 15:29:11 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-void	adaptive_strategy(t_stack **a, t_stack **b, double disorder, int *move)
+size_t	ft_strlen(const char *s)
 {
-	if (!a || !(*a) || disorder == 0)
-		return ;
-	if (disorder < 0.2)
-	{
-		simple_strategy(a, b, move);
-		return ;
-	}
-	else if (disorder >= 0.2 && disorder < 0.5)
-	{
-		medium_strategy(a, b, move);
-		return ;
-	}
-	else if (disorder >= 0.5)
-	{
-		complex_strategy(a, b, move);
-		return ;
-	}
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }

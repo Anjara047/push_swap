@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adaptive_strategy.c                                :+:      :+:    :+:   */
+/*   ft_putdec.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 13:15:02 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/24 16:21:53 by tsiarran         ###   ########.fr       */
+/*   Created: 2026/02/14 09:34:33 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/03/24 19:12:08 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-void	adaptive_strategy(t_stack **a, t_stack **b, double disorder, int *move)
+int	ft_putdec(va_list args)
 {
-	if (!a || !(*a) || disorder == 0)
-		return ;
-	if (disorder < 0.2)
-	{
-		simple_strategy(a, b, move);
-		return ;
-	}
-	else if (disorder >= 0.2 && disorder < 0.5)
-	{
-		medium_strategy(a, b, move);
-		return ;
-	}
-	else if (disorder >= 0.5)
-	{
-		complex_strategy(a, b, move);
-		return ;
-	}
+	int		nbr;
+	char	*tmp;
+	int		len;
+
+	nbr = va_arg(args, int);
+	ft_putnbr_fd(nbr, 2);
+	tmp = ft_itoa(nbr);
+	len = (int)ft_strlen(tmp);
+	free(tmp);
+	return (len);
 }

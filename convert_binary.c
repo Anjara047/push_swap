@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adaptive_strategy.c                                :+:      :+:    :+:   */
+/*   convert_binary.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 13:15:02 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/24 16:21:53 by tsiarran         ###   ########.fr       */
+/*   Created: 2026/03/24 23:41:30 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/03/26 19:36:03 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	adaptive_strategy(t_stack **a, t_stack **b, double disorder, int *move)
+int	get_bit(int nb, int bit)
 {
-	if (!a || !(*a) || disorder == 0)
-		return ;
-	if (disorder < 0.2)
+	int	loc;
+
+	loc = 0;
+	while (loc < bit)
 	{
-		simple_strategy(a, b, move);
-		return ;
+		nb = nb / 2;
+		loc++;
 	}
-	else if (disorder >= 0.2 && disorder < 0.5)
-	{
-		medium_strategy(a, b, move);
-		return ;
-	}
-	else if (disorder >= 0.5)
-	{
-		complex_strategy(a, b, move);
-		return ;
-	}
+	return (nb % 2);
 }

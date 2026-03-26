@@ -6,7 +6,7 @@
 /*   By: tsanjara <tsanjara@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 21:42:10 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/24 01:35:44 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/21 09:03:16 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ double	count_disorder(t_stack **a)
 		}
 		current = current->next;
 	}
-	return (((double)mistakes / (double)total_pairs) * 100);
+	return ((double)mistakes / (double)total_pairs);
 }

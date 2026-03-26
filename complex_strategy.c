@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:19:19 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/23 20:08:48 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/25 11:46:22 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ static int	gap_max(t_stack **a)
 	return (max_gap + 1);
 }
 
-void	complex_strategy(t_stack **a, t_stack **b)
+void	complex_strategy(t_stack **a, t_stack **b, int *move)
 {
 	int	size;
 	int	gap;
 	int	max_gap;
 
+	if (!a || !(*a))
+		return ;
 	gap = 0;
 	max_gap = gap_max(a);
 	while (gap < max_gap)
@@ -42,14 +44,14 @@ void	complex_strategy(t_stack **a, t_stack **b)
 		size = count_size(*a);
 		while (size > 0)
 		{
-			if (((((*a)->index) >> gap) & 1) == 0)
-				pb(a, b);
+			if (get_bit((*a)->index, gap) == 0)
+				pb(a, b, move);
 			else
-				ra(a);
+				ra(a, move);
 			size--;
 		}
 		while (*b)
-			pa(a, b);
+			pa(a, b, move);
 		gap++;
 	}
 }

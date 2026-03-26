@@ -6,13 +6,13 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 07:31:00 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/23 19:44:12 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/24 16:36:21 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int *move)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -24,10 +24,11 @@ void	sb(t_stack **b)
 	first->next = second->next;
 	second->next = first;
 	*b = second;
+	move[4]++;
 	write(1, "sb\n", 3);
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b, int *move)
 {
 	t_stack	*tmp;
 
@@ -37,10 +38,11 @@ void	pb(t_stack **a, t_stack **b)
 	*a = (*a)->next;
 	tmp->next = *b;
 	*b = tmp;
+	move[5]++;
 	write(1, "pb\n", 3);
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int *move)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -52,10 +54,11 @@ void	rb(t_stack **b)
 	first->next = NULL;
 	last = ft_stack_last(*b);
 	last->next = first;
+	move[6]++;
 	write(1, "rb\n", 3);
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int *move)
 {
 	t_stack	*last;
 	t_stack	*prev;
@@ -72,5 +75,6 @@ void	rrb(t_stack **b)
 	prev->next = NULL;
 	last->next = *b;
 	*b = last;
+	move[7]++;
 	write(1, "rrb\n", 4);
 }

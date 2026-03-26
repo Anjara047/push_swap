@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsiarran <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 07:03:33 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/23 19:54:05 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/25 11:40:24 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ void	indexing(t_stack **a, int size)
 		tmp->index = pick_index(arr, tmp->value, size);
 		tmp = tmp->next;
 	}
-	free (arr);
+	free(arr);
 }

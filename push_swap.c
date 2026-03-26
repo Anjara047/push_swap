@@ -6,13 +6,13 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:02:01 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/24 07:57:00 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/27 01:26:51 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	check_duplicates(t_stack **a)
+static int	check_duplicates(t_stack **a)
 {
 	t_stack	*tmp;
 	t_stack	*tmp2;
@@ -24,69 +24,61 @@ static void	check_duplicates(t_stack **a)
 		while (tmp2)
 		{
 			if (tmp->value == tmp2->value)
-				error_mess();
+			{
+				ft_stackclear(a);
+				return (1);
+			}
 			tmp2 = tmp2->next;
 		}
 		tmp = tmp->next;
 	}
+	return (0);
 }
 
-static void	parse(char	**argv, t_stack **a, int loc)
+int	parse(char **argv, t_stack **a, int *flag, int loc)
 {
-	int		value;
-	t_stack	*new;
+	int		error[1];
 
-	while (argv[loc])
+	error[0] = 0;
+	if (loc == 1)
+		error[0] = f_affect(a, argv, flag, error);
+	else if (loc == 0)
+		error[0] = s_affect(a, argv, flag, error);
+	if (error[0] == 1)
 	{
-		if (check_arg(argv, loc) == 0)
-			parse(ft_split(argv[loc], 32), a, 0);
-		else
-		{
-			value = ft_atoi(argv[loc]);
-			new = ft_stack_new(value);
-			if (!new)
-			{
-				ft_stackclear(a);
-				return ;
-			}
-			ft_add_stack_back(new, a);
-		}
-		loc++;
+		ft_stackclear(a);
+		return (1);
 	}
+	return (0);
 }
 
-static void	push_swap(char	**argv)
+static double	push_swap(char **argv, int *move, int *flag)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		flag;
 	double	disorder;
 	int		size;
 
 	a = NULL;
 	b = NULL;
-	flag = check_flag(argv[1]);
-	if (flag)
-		parse(argv, &a, 2);
-	else
-		parse(argv, &a, 1);
-	size = count_size(a);
-	check_duplicates(&a);
-	indexing(&a, size);
-	if (size < 4)
-		strat_min_number(&a);
-	else
+	if (parse(argv, &a, flag, 1) != 1)
 	{
-		disorder = count_disorder(&a);
-		if (disorder != 0)
+		size = count_size(a);
+		if (check_duplicates(&a) == 1)
 		{
-			if (flag)
-				choose_strat(&a, &b, flag);
-			else
-				adaptive_strategy(&a, &b, disorder);
+			ft_stackclear(&a);
+			return (2.0);
 		}
-		ft_free_stack(&a, &b);
+		indexing(&a, size);
+		disorder = count_disorder(&a);
+		choice(&a, &b, flag, move);
+		ft_stackclear(&a);
+		ft_stackclear(&b);
+		if (size == 0)
+			return (2.0);
+		return (disorder);
 	}
+	return (2.0);
 }
 
 int	check_arg(char **argv, int loc)
@@ -107,12 +99,30 @@ int	check_arg(char **argv, int loc)
 	return (0);
 }
 
-int	main(int argc, char	**argv)
+int	main(int argc, char **argv)
 {
-	if (argc <= 2)
+	int		move[11];
+	int		loc;
+	double	disorder;
+	int		*flag;
+
+	flag = verify_flag(argv);
+	loc = 0;
+	while (loc < 11)
+		move[loc++] = 0;
+	check_param(argc, argv, flag);
+	disorder = push_swap(argv, move, flag);
+	if (disorder == 0.0)
 	{
-		if ((argc == 1) || (check_arg(argv, 1) == 1))
-			error_mess();
+		free(flag);
+		exit(1);
 	}
-	push_swap(argv);
+	else if (disorder == 2.0)
+	{
+		free(flag);
+		error_mess();
+	}
+	if (flag[0] != 0)
+		show_benchmark(disorder, flag[2], move);
+	free(flag);
 }
