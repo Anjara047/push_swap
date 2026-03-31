@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 07:51:11 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/26 20:29:22 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/28 10:52:39 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	*verify_flag(char **argv)
 		error_mess();
 	bench_nb = 0;
 	flag_nb = 0;
+	loc = 0;
 	while (loc < 3)
 		result[loc++] = 0;
 	result = surf(argv, result, flag_nb, bench_nb);

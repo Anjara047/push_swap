@@ -6,7 +6,7 @@
 /*   By: tsiarran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 06:35:54 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/26 19:51:44 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/28 17:26:14 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	print_double(va_list args)
 	write(2, ".", 1);
 	len++;
 	dec_part = (int)((nb - (int_nb)) * 100);
+	if (dec_part < 10 && dec_part != 0)
+		len = len + ((int)write(2, "0", 1));
 	if (dec_part != 0)
 		len = len + putint(dec_part);
 	else if (dec_part == 0)

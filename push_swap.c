@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:02:01 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/27 01:26:51 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/28 16:27:49 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,12 +112,7 @@ int	main(int argc, char **argv)
 		move[loc++] = 0;
 	check_param(argc, argv, flag);
 	disorder = push_swap(argv, move, flag);
-	if (disorder == 0.0)
-	{
-		free(flag);
-		exit(1);
-	}
-	else if (disorder == 2.0)
+	if (disorder == 2.0)
 	{
 		free(flag);
 		error_mess();

@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 09:29:05 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/24 16:46:34 by tsiarran         ###   ########.fr       */
+/*   Updated: 2026/03/28 13:56:59 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ void	medium_strategy(t_stack **a, t_stack **b, int *move)
 	int	max_index;
 
 	if (!((*a) || a))
+		return ;
+	if ((count_size(*a) <= 3) && (fast_sort(a, move) == 0))
 		return ;
 	length = count_size(*a);
 	size = ft_sqrt(length);

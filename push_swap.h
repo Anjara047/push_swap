@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 18:02:46 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/03/27 01:21:20 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/28 13:36:14 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ typedef struct s_stack
 
 void				show_benchmark(double disorder, int iflag, int *move);
 double				count_disorder(t_stack **a);
-void				adaptive_strategy(t_stack **a, t_stack **b, double disorder,
+void				adaptive_strategy(t_stack **a, t_stack **b, int *flag,
 						int *move);
 int					check_flag(char *flag);
 int					parse(char **argv, t_stack **a, int *flag, int loc);
-void				choose_strat(t_stack **a, t_stack **b, int flag, int *move);
+void				choose_strat(t_stack **a, t_stack **b, int *flag,
+						int *move);
 void				error_mess(void);
 int					check_arg(char **argv, int loc);
 int					ft_atoi(char *nb, int *error);
@@ -71,5 +72,6 @@ int					s_affect(t_stack **a, char **argv, int *flag, int *error);
 void				free_split(char **str);
 void				choice(t_stack **a, t_stack **b, int *flag, int *move);
 void				check_param(int argc, char **argv, int *flag);
+int					fast_sort(t_stack **a, int *move);
 
 #endif

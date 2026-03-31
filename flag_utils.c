@@ -6,7 +6,7 @@
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 07:21:36 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/26 15:31:16 by tsiarran         ###   ########.fr       */
+/*   Updated: 2026/03/28 20:21:54 by tsanjara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,18 @@ int	check_flag(char *flag)
 	return (0);
 }
 
-void	choose_strat(t_stack **a, t_stack **b, int flag, int *move)
+void	choose_strat(t_stack **a, t_stack **b, int *flag, int *move)
 {
-	double	disorder;
-
 	if (!(*a) || !a)
 		return ;
-	if (flag == 1)
+	if (flag[2] == 1)
 		simple_strategy(a, b, move);
-	else if (flag == 2)
+	else if (flag[2] == 2)
 		medium_strategy(a, b, move);
-	else if (flag == 3)
+	else if (flag[2] == 3)
 		complex_strategy(a, b, move);
-	else if (flag == 4)
+	else if (flag[2] == 4)
 	{
-		disorder = count_disorder(a);
-		adaptive_strategy(a, b, disorder, move);
+		adaptive_strategy(a, b, flag, move);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tsanjara <tsanjara@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 19:19:48 by tsanjara          #+#    #+#             */
-/*   Updated: 2026/03/26 20:13:48 by tsanjara         ###   ########.fr       */
+/*   Updated: 2026/03/28 20:15:56 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ static char	*choose_flag(int iflag)
 
 static char	*define_strat(int iflag, double disorder)
 {
-	if ((iflag == 1) || (((iflag == 4 || (!iflag)) && (disorder < 0.2))))
+	if ((iflag == 1) || (((iflag == 4 || (!iflag)) && (disorder < 0.2000))))
 		return ("O(n2)");
-	else if ((iflag == 2) || ((iflag == 4 || (!iflag)) && (disorder >= 0.2
-				&& disorder < 0.5)))
+	else if ((iflag == 2) || ((iflag == 4 || (!iflag)) && (disorder >= 0.2000
+				&& disorder < 0.5000)))
 		return ("O(n√n)");
-	else if ((iflag == 3) || ((iflag == 4 || (!iflag)) && (disorder >= 0.5)))
+	else if ((iflag == 3) || ((iflag == 4 || (!iflag)) && (disorder >= 0.5000)))
 		return ("O(n log n)");
 	return ("Adaptive");
 }

@@ -11,7 +11,7 @@ SRC =  	count_disorder.c adaptive_strategy.c\
 		complex_strategy.c push_swap.c\
 		show_benchmark.c convert_binary.c\
 		verify_flag.c parse_utils.c\
-		push_swap_utils.c
+		push_swap_utils.c fast_sort.c
 
 OBJ = $(SRC:.c=.o)
 DIR_PRINTF = ft_printf
